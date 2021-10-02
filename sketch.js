@@ -57,7 +57,7 @@ function draw() {
   text("EPIC ARCHERY", width / 2, 100);
 }
 function keyPressed(){
-if(keyCode === 32){
+if(keyIsDown("space")){
   var posX = playerArcher.body.position.x
   var posY = playerArcher.body.position.y
   var angle = playerArcher.body.angle
@@ -67,7 +67,7 @@ if(keyCode === 32){
 }
 }
 function keyReleased(){
-if(keyCode === 32){
+if(keyIsDown("space")){
   if(playerArrows.length){
     var angle = playerArcher.body.angle
     playerArrows[playerArrows.length-1].shoot(angle)
