@@ -56,9 +56,22 @@ function draw() {
   textSize(40);
   text("EPIC ARCHERY", width / 2, 100);
 }
-
+function keyPressed(){
 if(keyCode === 32){
-  playerArrows.shoot(playerArcher.body.angle)
+  var posX = playerArcher.body.position.x
+  var posY = playerArcher.body.position.y
+  var angle = playerArcher.body.angle
+  var arrow = new PlayerArrow(posX,posY,100,10,angle)
+}
+}
+function keyReleased(){
+if(keyCode === 32){
+  if(playerArrows.length){
+    var angle = playerArcher.body.angle
+    playerArrows[playerArrows.length-1].shoot(angle)
+
+}
+}
 }
 
 
