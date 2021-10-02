@@ -15,15 +15,16 @@ class PlayerArrow {
   
   //create a shoot function
   shoot(archerAngle){
-    var velocity = p5.Vector.fromAngle(archerAngle)
-    velocity.mult(20)
-    Matter.Bosdy.setStatic(this.body, false)
-    Matter.Body.setVelocity(this.body, {x: velocity.x, y: velocity.y})
+    archerAngle += 90
+    this.velocity = p5.Vector.fromAngle(archerAngle *(3.14/180))
+    this.velocity.mult(0.5)
+    Matter.Body.setStatic(this.body, false)
+    Matter.Body.setVelocity(this.body, {x: this.velocity.x * (180/3.14), y: this.velocity.y * (180/3.14)})
   }
  
 
   display() {
-  
+    
     var pos = this.body.position;
     var angle = this.body.angle;
 
