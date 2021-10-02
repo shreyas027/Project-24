@@ -24,7 +24,13 @@ class PlayerArrow {
  
 
   display() {
-    
+    var tempAngle 
+    if(this.body.velocity.y === 0){
+      tempAngle = this.archerAngle + 90
+    }else{
+      tempAngle = Math.atan(this.body.velocity.y/this.body.velocity.x)*(180/3.14)
+    }
+    Matter.Body.setAngle(this.body, tempAngle)
     var pos = this.body.position;
     var angle = this.body.angle;
 
