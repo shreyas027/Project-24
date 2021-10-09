@@ -49,7 +49,11 @@ function draw() {
   image(playerimage,player.position.x,player.position.y,50,180)
 
   playerArcher.display();
-
+  for(i=0; i<playerArrows.length; i++){
+    if(playerArrows[i]!== undefined)
+    {
+      playerArrows[i].display()
+    }}
   // Title
   fill("#FFFF");
   textAlign("center");
@@ -57,7 +61,7 @@ function draw() {
   text("EPIC ARCHERY", width / 2, 100);
 }
 function keyPressed(){
-if(keyIsDown("space")){
+if(keyCode === 32){
   var posX = playerArcher.body.position.x
   var posY = playerArcher.body.position.y
   var angle = playerArcher.body.angle
@@ -67,7 +71,7 @@ if(keyIsDown("space")){
 }
 }
 function keyReleased(){
-if(keyIsDown("space")){
+if(keyCode === 32){
   if(playerArrows.length){
     var angle = playerArcher.body.angle
     playerArrows[playerArrows.length-1].shoot(angle)
